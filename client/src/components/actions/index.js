@@ -33,7 +33,7 @@ export const EDITTAB_FAIL = 'EDITTAB_FAIL';
 
 export const login = (credentials) => dispatch => {
   dispatch({type: LOGIN_START});
-  const baseURL = 'https://tabless-be.herokuapp.com/api/auth'
+  const baseURL = 'https://w-l-j.herokuapp.com//api/auth'
   axios
     .post(`${baseURL}/login`, credentials)
     .then(response => {
@@ -50,7 +50,7 @@ export const login = (credentials) => dispatch => {
 
 export const register = (credentials) => dispatch => {
   dispatch({type: REGISTER_START});
-    const baseURL = "https://tabless-be.herokuapp.com/api/auth";
+    const baseURL = "https://w-l-j.herokuapp.com//api/auth";
     axios
       .post(`${baseURL}/register`, credentials)
       .then(res => {
@@ -68,9 +68,9 @@ export const register = (credentials) => dispatch => {
 export const loadTabs = (id) => dispatch => {
   dispatch({type: LOADTABS_START});
   axiosWithAuth()
-  .get(`/tabs/${id}`)
+  .get(`/workouts/${id}`)
   .then(res => {
-    dispatch({type:LOADTABS_SUCCESS, payload: res.data.tabs})
+    dispatch({type:LOADTABS_SUCCESS, payload: res.data.workouts})
   })
   .catch(err => {
     dispatch({type: LOADTABS_FAIL, payload:err});
